@@ -36,6 +36,31 @@ void * func1()
 	printf("MyCat %d has executed \n",MyCats);
 	pthread_mutex_unlock(&mutex);
 }
+void * func2()
+{
+		MyMouse=MyMouse+1;
+		os[MyMouse]=MyMouse;
+		int val=MyMouse;
+	
+	sem_wait(&Mymousecount);
+	if(MyMouse==1){
+		pthread_mutex_lock(&mymousemutex);
+	}
+	printf("MyMouse %d is eating\n",MyMouse);
+	printf("MyMouse %d is sleeping \n",MyMouse);
+	sleep(5);
+	if(val!=os[val])
+	{
+		return;
+	}
+	printf("MyMouse %d wake  up and eating \n",MyMouse);
+	sleep(6);
+	printf("MyMouse %d wake  up and eating \n",MyMouse);
+	printf("MyMouse %d has executed\n",MyMouse);
+	
+	pthread_mutex_unlock(&mymousemutex);
+}
+
 
 
 
